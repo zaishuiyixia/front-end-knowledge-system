@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex 画骰子</title>
+    <style type="text/css">
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+
+            display: flex;
+            justify-content: space-between;
+        }
+        .item {
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #666;
+        }
+        .item:nth-child(2) {
+            align-self: center;
+        }
+        .item:nth-child(3) {
+            align-self: flex-end;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+    </div>
+    <script>
+    /**
+     * @description: 考察flex布局常用属性
+     * flex-direction: 主轴的方向（可横向可纵向）即子元素的排列方向
+            row（默认值）：主轴为水平方向，起点在左端。
+            row-reverse：主轴为水平方向，起点在右端。
+            column：主轴为垂直方向，起点在上沿。
+            column-reverse：主轴为垂直方向，起点在下沿。
+     * flex-wrap: 默认情况下，项目都排在一条线（又称"轴线"）上。flex-wrap属性定义，如果一条轴线排不下，如何换行
+            nowrap（默认）：不换行。
+            wrap：换行，第一行在上方，顺序排列
+            wrap-reverse：换行，第一行在下方，第二行在上方。
+     * flex-flow：属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。
+     * justify-content：属性定义了子元素在主轴上的对齐方式。它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。
+            flex-start（默认值）：左对齐
+            flex-end：右对齐
+            center： 居中
+            space-between：两端对齐，项目之间的间隔都相等。
+            space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
+     * align-items: 定义子元素在交叉轴上如何对齐（和主轴垂直的轴）。它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。
+            flex-start：交叉轴的起点对齐。
+            flex-end：交叉轴的终点对齐。
+            center：交叉轴的中点对齐。
+            baseline: 项目的第一行文字的基线对齐。
+            stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+     * align-self：子元素在交叉轴的对齐方式。属性允许单个子元素有与其他子元素不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
+       该属性可能取6个值，除了auto，其他都与align-items属性完全一致。
+     */        
+    </script>
+</body>
+</html>

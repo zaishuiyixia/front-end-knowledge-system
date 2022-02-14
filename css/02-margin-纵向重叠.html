@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>margin 纵向重叠</title>
+    <!-- 如下代码，AAA和BBB之间的距离是多少 -->
+    <style type="text/css">
+        p {
+            font-size: 16px;
+            line-height: 1;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        .box {
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    
+    <p id="A">AAA</p>
+    <p class="box"></p>
+    <p></p>
+    <p></p>
+    <p id="B">BBB</p>
+    <script>
+        /**
+         * @description: margin纵向重叠问题
+         * 1、相邻元素的margin-top和margin-bottom会发生重叠
+         * 2、空白内容元素的margin-top和margin-bottom也会发生重叠
+         * 所以AAA的下边距15和三个空白p标签（margin-top和margin-bottom重叠为30px）和BBB的上边距10px重叠，最终结果是15px
+         */        
+        var topA = document.getElementById('A').offsetHeight + document.getElementById('A').offsetTop
+        var topB = document.getElementById('B').offsetTop
+        console.log(topA, topB)
+        console.log(topB-topA)
+    </script>
+</body>
+</html>

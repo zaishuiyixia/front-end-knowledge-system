@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>盒模型</title>
+    <!-- 如下代码，div1的offsetWidth是多大 -->
+    <style type="text/css">
+        #div1 {
+            width: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 10px;
+            /* box-sizing: border-box; */
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        this is div1
+    </div>
+
+    <script>
+        // offsetWidth 属性是一个只读属性，它返回该元素的像素宽度，宽度包含内边距（padding）和边框（border），不包含外边距（margin），是一个整数，单位是像素 px。
+        // offsetWidth = (内容宽度+内边距+边框)，无外边距
+        // document.getElementById('div1').offsetWidth
+    </script>
+</body>
+</html>

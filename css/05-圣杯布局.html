@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>圣杯布局</title>
+    <style type="text/css">
+        body {
+            min-width: 550px;
+        }
+        #header {
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+
+        #container {
+            padding-left: 200px;
+            padding-right: 150px;
+        }
+        #container .column {
+            float: left;
+        }
+
+        #center {
+            background-color: #ccc;
+            width: 100%;
+        }
+        #left {
+            position: relative;
+            background-color: yellow;
+            width: 200px;
+            margin-left: -100%;
+            right: 200px;
+        }
+        #right {
+            background-color: red;
+            width: 150px;
+            margin-right: -150px;
+        }
+
+        #footer {
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+
+        /* 手写 clearfix */
+        .clearfix:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">this is header</div>
+    <!-- 三栏布局，左右固定宽度中间自适应 -->
+    <!-- 之所以把content放在left和right前面，因为三栏布局中间一栏需要先加载 -->
+    <div id="container" class="clearfix">
+        <div id="center" class="column">this is center</div>
+        <div id="left" class="column">this is left</div>
+        <div id="right" class="column">this is right</div>
+    </div>
+    <div id="footer">this is footer</div>
+    <script>
+        /*
+        圣杯布局通过padding为两边留白，双飞翼布局通过margin为两边留白
+        之所以把content放在left和right前面，因为三栏布局中间一栏需要先加载，
+        又因为左右固定宽度中间自适应，所以会给三个块的父容器设置padding-left 和 padding-right值，content设置宽度为100%。
+        最后通过给三个块设置浮动，给left块设置margin-left 和相对定位right来使left块在content块左侧，通过给right块设置margin-right等于自身宽度的负值来使right块到content块的右侧，最终清除浮动带来的影响即可完成布局。
+        */
+    </script>
+</body>
+</html>
