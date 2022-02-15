@@ -23,3 +23,12 @@ print(fn) // 100
 
 // 所有的自由变量的查找，是在函数定义的地方，向上级作用域查找
 // 不是在执行的地方！！！
+
+function print(fn) {
+    const b = 200
+    fn()
+}
+function fn() {
+    console.log(b)
+}
+print(fn) // b is not defined

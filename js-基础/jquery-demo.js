@@ -25,12 +25,12 @@ class jQuery {
     // 扩展很多 DOM API
 }
 
-// 插件
+// 插件机制
 jQuery.prototype.dialog = function (info) {
     alert(info)
 }
 
-// “造轮子”
+// 复写/“造轮子”
 class myJQuery extends jQuery {
     constructor(selector) {
         super(selector)

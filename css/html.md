@@ -21,8 +21,8 @@ HTML5 提供了定义页面不同部分的新语义元素：
 
 好处：
 1. 提高代码可读性；
-2. 便于搜索引擎解析
+2. 便于搜索引擎解析（SEO）
 
 #### 块状元素&内联元素
 块状元素(display:block/table的元素)：div,h1,h2,ul,ol,table,p（特点：块级元素可以独占一行）
-内联元素（inline-block/inline的元素：span,img,input,button (特点：不可以独占一行)
+内联元素（inline-block/inline的元素：span,img,input,button (特点：不会独占一行)

@@ -23,9 +23,11 @@
             width: 200px;
             height: 100px;
             border: 1px solid blue;
-
-            top: 20px;
-            left: 50px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
         }
     </style>
 </head>
@@ -37,6 +39,28 @@
             this is absolute
         </div>
     </div>
+    <script>
+    /**
+     * @description: absolute 和 relative 
+     *  relative 依据自身定位
+        absolute 依据最近一层的定位元素定位(定位元素是指position是：absolute relative fixed的元素)，如果没有则相对于body
+     */
 
+    /**
+     * @description: 水平居中
+     * 让inline元素水平居中: 父元素设置text-align: center
+       让block元素水平居中: 该block元素设置margin: auto
+       absolute元素: left:50% + margin-left负值（margin-left:-width/2px）（需要知道子元素的尺寸）
+       absolute元素: left:50% + transform: translateX(-50%) （不需要知道子元素的尺寸）
+     */
+    
+    /**
+     * @description: 垂直居中
+     * 让inline元素垂直居中：line-height 的值等于height值 
+       absolute 元素：top: 50% + margin-top 负值 (需要知道子元素的高) 
+       absolute 元素：top: 50% + left: 50% +  transform:translate(-50%,-50%) (不需要知道子元素的高) 
+       absolute 元素：top left bottom right 都等于 0 + margin: auto (不需要知道子元素的高)   
+     */     
+    </script>
 </body>
 </html>

@@ -27,6 +27,10 @@ function deepClone(obj = {}) {
         return obj
     }
 
+    if(obj instanceof Function) {
+        throw new Error('不能复制函数')
+    }
+
     // 初始化返回结果
     let result
     if (obj instanceof Array) {
