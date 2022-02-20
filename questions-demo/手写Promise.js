@@ -6,10 +6,10 @@
 class MyPromise {
     state = 'pending' // 状态，'pending' 'fulfilled' 'rejected'
     value = undefined // 成功后的值
-    reason = undefined // 失败后的原因
+    reason = undefined // 失败后的值
 
-    resolveCallbacks = [] // pending 状态下，存储成功的回调
-    rejectCallbacks = [] // pending 状态下，存储失败的回调
+    resolveCallbacks = [] // pending 状态下，存储成功的回调，等状态变化后pending ===》fulfilled 再执行
+    rejectCallbacks = [] // pending 状态下，存储失败的回调， 等状态变化后pending ===》 rejected 再执行
 
     constructor(fn) {
         const resolveHandler = (value) => {
@@ -35,8 +35,8 @@ class MyPromise {
         }
     }
 
-    then(fn1, fn2) {
-        fn1 = typeof fn1 === 'function' ? fn1 : (v) => v
+    then(fn1, fn2) { // 返回新的Promise
+        fn1 = typeof fn1 === 'function' ? fn1 : (v) => v //给个默认值接受什么集聚返回什么即可
         fn2 = typeof fn2 === 'function' ? fn2 : (e) => e
 
         if (this.state === 'pending') {
@@ -66,7 +66,7 @@ class MyPromise {
             const p1 = new MyPromise((resolve, reject) => {
                 try {
                     const newValue = fn1(this.value)
-                    resolve(newValue)
+                    resolve(newValue) //设置新的Promise的状态和值
                 } catch (err) {
                     reject(err)
                 }
@@ -87,7 +87,7 @@ class MyPromise {
         }
     }
 
-    // 就是 then 的一个语法糖，简单模式
+    // 就是 then 的一个语法糖，简单模式，then可以传入两个参数一个成功回调一个失败回调，而catch只接受一个参数失败回调
     catch(fn) {
         return this.then(null, fn)
     }
