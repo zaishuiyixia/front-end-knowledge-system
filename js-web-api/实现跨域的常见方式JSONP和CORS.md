@@ -32,12 +32,15 @@ jsonp 解决跨域的原理:
 
 ### CORS 跨域资源共享——服务器设置 http header（纯服务端去做不需要前端去做）
 
-//第二个参数填写允许跨域的域名，不建议直接写"*"(*表明，该资源可以被 任意 外域访问)
-response.setHeader("Access-Control-Allow-Origin", "http://xxx:8011");//origin 参数的值指定了允许访问该资源的外域 URI。如果该字段的值为通配符 _，则表示允许来自所有域的请求。
-注意，如果服务端指定了具体的域名而非 _，那么响应头部中的 Vary 字段的值必须包含 Origin。这将告诉客户端：服务器对不同的源站返回不同的内容。
+//第二个参数填写允许跨域的域名，不建议直接写"*"(*表明，该资源可以被任意外域访问)
+response.setHeader("Access-Control-Allow-Origin", "http://xxx:8011");//origin 参数的值指定了允许访问该资源的外域URI。如果该字段的值为通配符*，则表示允许来自所有域的请求。
+注意，如果服务端指定了具体的域名而非*，那么响应头部中的 Vary 字段的值必须包含 Origin。这将告诉客户端：服务器对不同的源站返回不同的内容。
 
-response.setHeader("Access-Control-Allow-Headers", "X-Requested-With"); // 头部字段用于预检请求的响应。其指明了实际请求所允许使用的 HTTP 方法。
-response.setHeader("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS"); // 头部字段用于预检请求的响应。其指明了实际请求中允许携带的首部字段。
+response.setHeader("Access-Control-Allow-Headers", "X-Requested-With"); 
+// 头部字段用于预检请求的响应。其指明了实际请求中允许携带的首部字段。
+
+response.setHeader("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+// 头部字段用于预检请求的响应。其指明了实际请求所允许使用的 HTTP 方法。
 
 **与 JSONP 的比较，CORS 与 JSONP 的使用目的相同，但是比 JSONP 更强大。JSONP 只支持 GET 请求，CORS 支持所有类型的 HTTP 请求。JSONP 的优势在于支持老式浏览器，以及可以向不支持 CORS 的网站请求数据。**
 
