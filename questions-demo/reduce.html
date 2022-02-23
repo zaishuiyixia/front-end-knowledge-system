@@ -16,7 +16,9 @@
         //     arr.forEach(n => res = res + n)
         //     return res
         // }
-
+        
+        // reduce归并操作，每个方法接收两个参数[在每一项上调用的函数 | 作为归并基础的初始值（可选）],都会迭代数组每一项，返回一个最终的值。
+        // 函数接收4个参数[前一个值 | 当前值 | 项的索引 | 数组对象本身],一般用于求数组之和
         // const arr = [10, 20, 30, 40, 50]
         // // const res = arr.reduce((sum, curVal, index, arr) => {
         // //     // console.log('reduce function ....')
@@ -31,7 +33,7 @@
         // console.log('res', res)
 
 
-        // // 计数
+        // // 计数：数组中有多少个30
         // const arr = [10, 20, 30, 40, 50, 10, 20, 30, 20]
         // const n = 30
         // const count = arr.reduce((count, val) => {
